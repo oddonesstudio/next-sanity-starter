@@ -1,0 +1,56 @@
+{
+  "name": "thepizzablues",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "bun@1.3.14",
+  "engines": {
+    "node": "22.x"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "biome check app ui",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "sb:dev": "storybook dev -p 6006",
+    "sb:build": "storybook build",
+    "verify:app": "bun run build",
+    "verify:storybook": "bun run sb:build",
+    "verify:all": "bun run verify:app && bun run verify:storybook",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "class-variance-authority": "^0.7.1",
+    "cn": "^0.5.0",
+    "framer-motion": "^14.4.0",
+    "lucide-react": "^1.60.0",
+    "next": "^16.4.2",
+    "next-themes": "^0.4.6",
+    "radix-ui": "^1.8.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "shadcn": "^4.22.1",
+    "tailwind-variants": "^3.3.1"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.5.15",
+    "@playwright/test": "^1.64.1",
+    "@storybook/addon-designs": "^12.0.0",
+    "@storybook/nextjs-vite": "^10.6.3",
+    "@tailwindcss/postcss": "^4.3.3",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
+    "@types/node": "^22",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "autoprefixer": "^10.6.1",
+    "jsdom": "^30.1.3",
+    "postcss": "^8.5.31",
+    "storybook": "^10.6.3",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.5"
+  }
+}
