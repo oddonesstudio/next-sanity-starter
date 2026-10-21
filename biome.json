@@ -1,5 +1,28 @@
 {
   "$schema": "https://biomejs.dev/schemas/2.5.15/schema.json",
+  "files": {
+    "includes": [
+      "app/**",
+      "components/**",
+      "lib/**",
+      "studio/**",
+      "ui/**",
+      "*.{js,ts,tsx,json}",
+      "!lib/sanity/sanity.types.ts",
+      "!!**/.next",
+      "!!**/.sanity",
+      "!!**/coverage",
+      "!!**/dist",
+      "!!**/node_modules",
+      "!!**/storybook-static"
+    ],
+    "ignoreUnknown": true
+  },
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
   "formatter": {
     "enabled": true,
     "indentStyle": "space",

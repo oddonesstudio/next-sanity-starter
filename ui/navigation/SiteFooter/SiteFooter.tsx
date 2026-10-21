@@ -7,6 +7,7 @@ import type { NavigationItem } from "../SiteHeader";
 
 interface SiteFooterProps {
   items: NavigationItem[];
+  tagline?: string;
 }
 
 const styles = tv({
@@ -20,7 +21,7 @@ const styles = tv({
     reveal: "sticky bottom-0 h-80 lg:h-80 hidden md:flex items-center justify-center",
     authorWrapper: "flex flex-col items-start justify-start md:max-w-50",
     mediaWrapper: "flex items-start",
-    tagline: "text-foreground mt-4 text-sm text-start",
+    taglineTextStyle: "text-foreground mt-4 text-sm text-start",
     author: "mt-4 text-foreground/50 text-sm flex items-center",
     authorLink: "font-semibold ml-1",
     labelStyle: "text-base font-medium",
@@ -32,7 +33,7 @@ const styles = tv({
   },
 });
 
-export const SiteFooter = ({ items }: SiteFooterProps) => {
+export const SiteFooter = ({ items, tagline }: SiteFooterProps) => {
   const {
     base,
     container,
@@ -41,7 +42,7 @@ export const SiteFooter = ({ items }: SiteFooterProps) => {
     bottom,
     authorWrapper,
     mediaWrapper,
-    tagline,
+    taglineTextStyle,
     author,
     authorLink,
     linkGrid,
@@ -58,7 +59,7 @@ export const SiteFooter = ({ items }: SiteFooterProps) => {
           <div className={grid()}>
             <div className={authorWrapper()}>
               <div className={mediaWrapper()}>ICON</div>
-              <p className={tagline()}>Tagline.</p>
+              {tagline && <p className={taglineTextStyle()}>{tagline}</p>}
               <span className={author()}>
                 Made by{" "}
                 <Link href="" className={authorLink()}>

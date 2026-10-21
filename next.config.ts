@@ -6,6 +6,14 @@ const nextConfig: NextConfig = {
   allowedDevOrigins,
   images: {
     qualities: [100, 75],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.sanity.io",
+        port: "",
+        pathname: "/images/**",
+      },
+    ],
   },
 };
 
