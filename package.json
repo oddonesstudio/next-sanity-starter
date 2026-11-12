@@ -20,7 +20,7 @@
     "sb:build": "storybook build",
     "verify:app": "bun run build",
     "verify:storybook": "bun run sb:build",
-    "verify:all": "bun run verify:app && bun run verify:storybook",
+    "verify:all": "bun run verify:app && bun run verify:storybook && bun --cwd studio run build",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
