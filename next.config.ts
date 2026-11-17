@@ -4,6 +4,9 @@ const allowedDevOrigins = process.env.IP_ADDRESS ? [process.env.IP_ADDRESS] : []
 
 const nextConfig: NextConfig = {
   allowedDevOrigins,
+  experimental: {
+    agentUpgrade: "security",
+  },
   images: {
     qualities: [100, 75],
     remotePatterns: [
