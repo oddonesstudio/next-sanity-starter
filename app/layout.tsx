@@ -1,11 +1,16 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
+import { draftMode } from "next/headers";
+import { VisualEditing } from "next-sanity/visual-editing";
 
 import { SiteFooter } from "@/ui/navigation/SiteFooter";
 import { SiteHeader } from "@/ui/navigation/SiteHeader";
 
 import "./styles/globals.css";
+
+import { SanityPreviewExit } from "@/components/SanityPreviewExit";
 import { ThemeProvider } from "@/components/ThemeProvider";
+
 import { getSiteSettings } from "@/lib/sanity/data";
 import { SanityLive } from "@/lib/sanity/live";
 
@@ -24,7 +29,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const siteSettings = await getSiteSettings();
+  const [siteSettings, draft] = await Promise.all([getSiteSettings(), draftMode()]);
 
   return (
     <html lang="en" suppressHydrationWarning>
@@ -38,6 +43,12 @@ export default async function RootLayout({
           />
         </ThemeProvider>
         <SanityLive />
+        {draft.isEnabled && (
+          <>
+            <SanityPreviewExit />
+            <VisualEditing />
+          </>
+        )}
       </body>
     </html>
   );
